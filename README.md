@@ -43,7 +43,7 @@ The project will start, and you should see log messages indicating that the serv
 Sending Requests
 To test the API, make GET requests using a tool like curl or a web browser to the following URL:
 
-`http://localhost:3030/ping`
+`http://localhost:8080/ping`
 If you configured a different port, replace 3030 with the port number you specified.
 
 Example using curl

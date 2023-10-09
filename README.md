@@ -1,87 +1,64 @@
-<!DOCTYPE html>
-<html>
+# Project Documentation
 
-<head>
-    <title>Project Documentation</title>
-</head>
+## Introduction
+This documentation provides instructions for downloading, building, and running the project developed in Rust. The project is an HTTP API that returns JSON-formatted request headers when a GET request is made to the "/ping" endpoint. Additionally, it handles other HTTP methods by responding with a 404 error and an empty response.
 
-<body>
+## Prerequisites
+Before you can run the project, make sure you have the following prerequisites installed on your system:
+- Rust
+- Cargo
 
-    <h1>Project Documentation</h1>
+## Downloading the Project
+You can download the project from its Git repository using the following command:
 
-    <h2>Introduction</h2>
-    <p>
-        This documentation provides instructions for downloading, building, and running the project developed in Rust.
-        The project is an HTTP API that returns JSON-formatted request headers when a GET request is made to the "/ping" endpoint.
-        Additionally, it handles other HTTP methods by responding with a 404 error and an empty response.
-    </p>
+`git clone <repository-url> `
 
-    <h2>Prerequisites</h2>
-    <p>
-        Before you can run the project, make sure you have the following prerequisites installed on your system:
-    </p>
-    <ul>
-        <li>Rust</li>
-        <li>Cargo</li>
-    </ul>
+Replace <repository-url> with the URL of your Git repository.
 
-    <h2>Downloading the Project</h2>
-    <p>
-        You can download the project from its Git repository using the following command:
-    </p>
-    <pre><code>git clone &lt;repository-url&gt;</code></pre>
-    <p>Replace &lt;repository-url&gt; with the URL of your Git repository.</p>
+## Building the Project
+To build the project, follow these steps:
 
-    <h2>Building the Project</h2>
-    <p>
-        Navigate to the project directory and use Cargo to build the project:
-    </p>
-    <pre><code>cd project-directory
-cargo build</code></pre>
-    <p>This command will compile the project and its dependencies.</p>
+Navigate to the Project Directory: Open your terminal and navigate to the directory where you cloned the project using the cd command:
 
-    <h2>Configuring the Port</h2>
-    <p>
-        By default, the project listens on port 8080. You can configure the listening port by setting the PING_LISTEN_PORT
-        environment variable. For example, to run the project on port 3030:
-    </p>
-    <pre><code>export PING_LISTEN_PORT=3030</code></pre>
+`cd project-directory`
+Replace project-directory with the actual directory name where your project is located.
 
-    <h2>Running the Project</h2>
-    <p>
-        You can start the project using the following command:
-    </p>
-    <pre><code>cargo run</code></pre>
-    <p>The project will start, and you should see log messages indicating that the server is running.</p>
+## Build the Project with Cargo: Once you are inside the project directory, build the project and compile its dependencies using Cargo:
 
-    <h2>Sending Requests</h2>
-    <p>
-        To test the API, you can use a tool like curl or a web browser to make GET requests to the following URL:
-    </p>
-    <pre><code>http://localhost:8080/ping</code></pre>
-    <p>Replace 3030 with the port you configured if you changed it.</p>
+`cargo build`
+Cargo will automatically fetch and compile all the necessary dependencies for your project.
 
-    <h3>Example using curl</h3>
-    <pre><code>curl http://localhost:3030/ping</code></pre>
-    <p>You should receive a JSON response containing the request headers.</p>
+## Configuring the Port
+By default, the project listens on port 3030. However, you can configure the listening port by setting the PING_LISTEN_PORT environment variable. For example, to run the project on port 8080:
 
-    <h2>Handling Other HTTP Methods</h2>
-    <p>
-        The project responds with a 404 error and an empty response for any HTTP method other than GET when making a request
-        to the root ("/") endpoint. For example:
-    </p>
-    <pre><code>curl -X POST http://localhost:8080/</code></pre>
+`export PING_LISTEN_PORT=8080`
+Replace 8080 with the desired port number.
 
-    <h2>Conclusion</h2>
-    <p>
-        You have successfully downloaded, built, and run the Rust project. You can now interact with the API by sending GET
-        requests to the "/ping" endpoint. For any other HTTP method or endpoint, the project will respond with a 404 error.
-    </p>
+## Running the Project
+Start the project by executing the following command in your terminal:
 
-    <p>
-        Feel free to customize this documentation with project-specific details and additional information as needed.
-    </p>
+`cargo run`
+The project will start, and you should see log messages indicating that the server is up and running.
 
-</body>
+Sending Requests
+To test the API, make GET requests using a tool like curl or a web browser to the following URL:
 
-</html>
+`http://localhost:3030/ping`
+If you configured a different port, replace 3030 with the port number you specified.
+
+Example using curl
+You can use the curl command to make a GET request to the /ping endpoint:
+
+`curl http://localhost:8080/ping`
+You will receive a JSON response containing the request headers.
+
+Handling Other HTTP Methods
+The project responds with a 404 error and an empty response for any HTTP method other than GET when making a request to the root ("/") endpoint. For instance:
+
+`curl -X POST http://localhost:8080/`
+In this case, you will receive a 404 error response, as this project is specifically designed to handle GET requests to the "/ping" endpoint.
+
+## Conclusion
+Congratulations! You have successfully downloaded, built, and run the Rust project. You can now interact with the API by sending GET requests to the "/ping" endpoint. For any other HTTP method or endpoint, the project will respond with a 404 error.
+
+Feel free to customize this documentation with project-specific details and additional information as needed.
